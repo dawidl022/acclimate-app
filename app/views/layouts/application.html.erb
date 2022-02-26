@@ -71,7 +71,7 @@
           mapOverlay.querySelector(".navigation-link")
             .setAttribute("href", `https://www.google.com/maps/dir/?api=1&destination=${lat}%2C${lng}`)
           mapOverlay.querySelector(".name").textContent = marker.title;
-          mapOverlay.querySelector(".rating").textContent = "Overall climate rating: " +  marker.label;
+          mapOverlay.querySelector(".rating").textContent = "Overall environmental rating: " +  marker.label;
 
           if (companyDescriptions[marker.title]) {
             mapOverlay.querySelector(".facts").innerHTML =
