@@ -15,6 +15,7 @@
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script>
       let map;
+      let companyDescriptions = {};
 
       function initMap() {
         <% if @lat %>
@@ -36,7 +37,8 @@
         return Array.from(document.querySelectorAll(".company-name"))
           .map(element => [
               element.textContent,
-              element.parentNode.querySelector(".company-rating").textContent
+              element.parentNode.querySelector(".company-rating").textContent,
+              element.parentNode.querySelector(".company-description").textContent
           ]);
       }
 
@@ -70,6 +72,14 @@
             .setAttribute("href", `https://www.google.com/maps/dir/?api=1&destination=${lat}%2C${lng}`)
           mapOverlay.querySelector(".name").textContent = marker.title;
           mapOverlay.querySelector(".rating").textContent = "Overall climate rating: " +  marker.label;
+
+          if (companyDescriptions[marker.title]) {
+            mapOverlay.querySelector(".facts").innerHTML =
+              companyDescriptions[marker.title].split("\n")
+              .map(line => `<li>${line}</li>`).join("")
+          } else {
+            mapOverlay.querySelector(".facts").innerHTML = "";
+          }
         });
 
         google.maps.event.addListener(map, "click", e => {
@@ -89,7 +99,8 @@
           const companies = getCompanies();
           const service = new google.maps.places.PlacesService(map);
 
-          companies.forEach(([company, rating]) => {
+          companies.forEach(([company, rating, description]) => {
+            companyDescriptions[company] = description;
             const request = {
               location: location,
               radius: <%= @radius.to_i * 1000 %>,

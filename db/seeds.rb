@@ -19,7 +19,8 @@ by_category.each_with_index do |(category, companies), index|
     Company.create({
       name: company["Company"],
       category: Category.find_by_name(category),
-      rating: company["Rating"]
+      rating: company["Rating"],
+      description: company["Description"]
     })
   end
 end

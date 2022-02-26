@@ -1,68 +1,72 @@
-Company,Sector,Rating
-Tesco,Grocery Store,2
-Aldi,Grocery Store,7
-Sainsbury,Grocery Store,9
-Lidl,Grocery Store,4
-Marks and Spencer food,Grocery Store,7
-Morrisons,Grocery Store,6
-Asda,Grocery Store,4
-Waitrose,Grocery Store,2
-Co-op,Grocery Store,9
-NatWest,Banking,1
-Barclays,Banking,6
-HSBC,Banking,5
-Lloyds,Banking,4
-RBS,Banking,6
-B&M,Department Store,6
-Next,Department Store,9
-House of Fraser,Department Store,1
-Debenhams,Department Store,5
-The Body Shop,Pharmacy & Beauty,9
-Boots,Pharmacy & Beauty,7
-Sephora,Pharmacy & Beauty,4
-John lewis,Pharmacy & Beauty,4
-Holland and Barrett,Pharmacy & Beauty,6
-L'occitane,Pharmacy & Beauty,2
-superdrug,Pharmacy & Beauty,4
-ExxonMobil,Petrol,4
-BP,Petrol,3
-Shell,Petrol,10
-Chevron,Petrol,8
-Chipotle,Restaurant,6
-Tortilla,Restaurant,3
-Greggs,Restaurant,1
-Leon,Restaurant,1
-Eat,Restaurant,7
-Wimpy,Restaurant,6
-Yo! Sushi,Restaurant,6
-Bens Cookies,Restaurant,3
-Nando’s,Restaurant,6
-Mcdonalds,Restaurant,8
-Burger king,Restaurant,10
-Kfc,Restaurant,1
-Pizza hut,Restaurant,1
-Dominos pizza,Restaurant,8
-Pizza express,Restaurant,3
-Krispy kreme,Restaurant,7
-Subway,Restaurant,6
-Toby carvey,Restaurant,3
-Jd wetherspoon,Restaurant,6
-Starbucks,Coffee,1
-Cafe nero,Coffee,8
-Costa coffee,Coffee,3
-Pret a Manger,Coffee,6
-AMT Coffee,Coffee,6
-Gail's Bakery,Coffee,3
-H&M,Clothing,4
-John Lewis,Clothing,4
-Marks & Spencer,Clothing,9
-Next,Clothing,2
-Primark,Clothing,2
-River Island,Clothing,4
-TJX Europe,Clothing,7
-George,Clothing,4
-Arcadia,Clothing,2
-TK Max,Clothing,3
-JD,Clothing,1
-Sports direct,Clothing,1
-Zara,Clothing,4
+Company,Sector,Rating,Description,Commitment to Net Zero?,Net Zero Year,Aligned to <2C goals,Target ambition,Target comprehensiveness
+Tesco,Grocery Store,2,"Committed net-zero target 2050
+No public emissions disclosure
+5% revenue committed to emissions reduction",Yes,2050,Yes,High ,Medium 
+Aldi,Grocery Store,3,,No,2049,No,Medium,High
+Sainsbury,Grocery Store,5,"Committed net-zero target 2035
+Twice annual public emissions disclosure
+12% revenue committed to emissions reduction",Yes,2048,Yes,Low ,Low
+Lidl,Grocery Store,7,,No,2047,No,High ,Medium 
+Marks and Spencer food,Grocery Store,2,,Yes,N/A,Yes,Medium,High
+Morrisons,Grocery Store,7,,No,2045,No,Low ,Low
+Asda,Grocery Store,1,,Yes,2044,Yes,High ,Medium 
+Waitrose,Grocery Store,10,,No,2043,No,Medium,High
+Co-op,Grocery Store,9,,Yes,2042,Yes,Low ,Low
+NatWest,Banking,4,,No,2041,No,High ,Medium 
+Barclays,Banking,7,,Yes,2040,Yes,Medium,High
+HSBC,Banking,5,,No,2039,No,Low ,Low
+Lloyds,Banking,10,,Yes,2038,Yes,High ,Medium 
+RBS,Banking,4,,Yes,2037,No,Medium,High
+B&M,Department Store,5,,No,2036,Yes,Low ,Low
+Next,Department Store,8,,Yes,2035,No,High ,Medium 
+House of Fraser,Department Store,2,,No,2034,Yes,Medium,High
+Debenhams,Department Store,7,,Yes,2033,No,Low ,Low
+The Body Shop,Pharmacy & Beauty,4,,No,N/A,Yes,High ,Medium 
+Boots,Pharmacy & Beauty,3,,Yes,2035,No,Medium,High
+Sephora,Pharmacy & Beauty,9,,No,2036,Yes,Low ,Low
+John lewis,Pharmacy & Beauty,1,,Yes,2037,No,High ,Medium 
+Holland and Barrett,Pharmacy & Beauty,4,,No,2038,Yes,Medium,High
+L'occitane,Pharmacy & Beauty,6,,Yes,2039,No,Low ,Low
+superdrug,Pharmacy & Beauty,1,,No,2040,Yes,High ,Medium 
+ExxonMobil,Petrol,5,,Yes,2041,No,Medium,High
+BP,Petrol,3,,Yes,2042,Yes,Low ,Low
+Shell,Petrol,2,,No,2043,No,High ,Medium 
+Chevron,Petrol,8,,Yes,2044,Yes,Medium,High
+Chipotle,Restaurant,7,,No,2045,No,Low ,Low
+Tortilla,Restaurant,7,,Yes,2046,Yes,High ,Medium 
+Greggs,Restaurant,10,,No,2047,No,Medium,High
+Leon,Restaurant,9,,Yes,2048,Yes,Low ,Low
+Eat,Restaurant,7,,No,2049,No,High ,Medium 
+Wimpy,Restaurant,10,,Yes,2050,Yes,Medium,High
+Yo! Sushi,Restaurant,6,,No,2051,No,Low ,Low
+Bens Cookies,Restaurant,2,,Yes,2052,Yes,High ,Medium 
+Nando’s,Restaurant,2,,No,2053,No,Medium,High
+Mcdonalds,Restaurant,9,,Yes,2054,Yes,Low ,Low
+Burger king,Restaurant,10,,Yes,2055,No,High ,Medium 
+Kfc,Restaurant,10,,No,2056,Yes,Medium,High
+Pizza hut,Restaurant,2,,Yes,2057,No,Low ,Low
+Dominos pizza,Restaurant,10,,No,2058,Yes,High ,Medium 
+Pizza express,Restaurant,10,,Yes,2059,No,Medium,High
+Krispy kreme,Restaurant,5,,No,2060,Yes,Low ,Low
+Subway,Restaurant,7,,Yes,2061,No,High ,Medium 
+Toby carvey,Restaurant,5,,No,2062,Yes,Medium,High
+Jd wetherspoon,Restaurant,9,,Yes,2063,No,Low ,Low
+Starbucks,Coffee,9,,No,2064,Yes,High ,Medium 
+Cafe nero,Coffee,3,,Yes,2065,No,Medium,High
+Costa coffee,Coffee,8,,No,2066,Yes,Low ,Low
+Pret a Manger,Coffee,3,,Yes,2067,No,High ,Medium 
+AMT Coffee,Coffee,8,,Yes,2068,Yes,Medium,High
+Gail's Bakery,Coffee,8,,No,2069,No,Low ,Low
+H&M,Clothing,4,,Yes,2070,Yes,High ,Medium 
+John Lewis,Clothing,6,,No,2071,No,Medium,High
+Marks & Spencer,Clothing,3,,Yes,2072,Yes,Low ,Low
+Next,Clothing,9,,No,2073,No,High ,Medium 
+Primark,Clothing,10,,Yes,2074,Yes,Medium,High
+River Island,Clothing,1,,No,2075,No,Low ,Low
+TJX Europe,Clothing,6,,Yes,2076,Yes,High ,Medium 
+George,Clothing,5,,No,2077,No,Medium,High
+Arcadia,Clothing,9,,Yes,2078,Yes,Low ,Low
+TK Max,Clothing,2,,No,2079,No,High ,Medium 
+JD,Clothing,3,,Yes,2080,Yes,Medium,High
+Sports direct,Clothing,6,,Yes,2081,No,Low ,Low
+Zara,Clothing,1,,No,2082,Yes,High ,Medium 
