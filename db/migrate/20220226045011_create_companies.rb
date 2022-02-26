@@ -7,7 +7,5 @@ class CreateCompanies < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-
-    add_index :companies, :category_id
   end
 end
