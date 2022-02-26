@@ -1,0 +1,68 @@
+Company,Sector,Rating
+Tesco,Grocery Store,2
+Aldi,Grocery Store,7
+Sainsbury,Grocery Store,9
+Lidl,Grocery Store,4
+Marks and Spencer food,Grocery Store,7
+Morrisons,Grocery Store,6
+Asda,Grocery Store,4
+Waitrose,Grocery Store,2
+Co-op,Grocery Store,9
+NatWest,Banking,1
+Barclays,Banking,6
+HSBC,Banking,5
+Lloyds,Banking,4
+RBS,Banking,6
+B&M,Department Store,6
+Next,Department Store,9
+House of Fraser,Department Store,1
+Debenhams,Department Store,5
+The Body Shop,Pharmacy & Beauty,9
+Boots,Pharmacy & Beauty,7
+Sephora,Pharmacy & Beauty,4
+John lewis,Pharmacy & Beauty,4
+Holland and Barrett,Pharmacy & Beauty,6
+L'occitane,Pharmacy & Beauty,2
+superdrug,Pharmacy & Beauty,4
+ExxonMobil,Petrol,4
+BP,Petrol,3
+Shell,Petrol,10
+Chevron,Petrol,8
+Chipotle,Restaurant,6
+Tortilla,Restaurant,3
+Greggs,Restaurant,1
+Leon,Restaurant,1
+Eat,Restaurant,7
+Wimpy,Restaurant,6
+Yo! Sushi,Restaurant,6
+Bens Cookies,Restaurant,3
+Nando’s,Restaurant,6
+Mcdonalds,Restaurant,8
+Burger king,Restaurant,10
+Kfc,Restaurant,1
+Pizza hut,Restaurant,1
+Dominos pizza,Restaurant,8
+Pizza express,Restaurant,3
+Krispy kreme,Restaurant,7
+Subway,Restaurant,6
+Toby carvey,Restaurant,3
+Jd wetherspoon,Restaurant,6
+Starbucks,Coffee,1
+Cafe nero,Coffee,8
+Costa coffee,Coffee,3
+Pret a Manger,Coffee,6
+AMT Coffee,Coffee,6
+Gail's Bakery,Coffee,3
+H&M,Clothing,4
+John Lewis,Clothing,4
+Marks & Spencer,Clothing,9
+Next,Clothing,2
+Primark,Clothing,2
+River Island,Clothing,4
+TJX Europe,Clothing,7
+George,Clothing,4
+Arcadia,Clothing,2
+TK Max,Clothing,3
+JD,Clothing,1
+Sports direct,Clothing,1
+Zara,Clothing,4
