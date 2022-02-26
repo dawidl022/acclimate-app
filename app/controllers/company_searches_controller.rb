@@ -4,8 +4,18 @@ class CompanySearchesController < ApplicationController
 
   def show
     # TODO validate input
-    category_id = params[:category_id]
-    @category = Category.find(category_id)
-    @company_list = Company.where(category: category_id).order(rating: :desc)
+    # TODO remember the category once selected
+    Google::Maps.configure do |config|
+      config.authentication_mode = Google::Maps::Configuration::API_KEY
+      config.api_key = Rails.application.credentials.gmaps_api_key
+    end
+    result = Google::Maps.geocode(params[:location])
+    @lat = result.first.latitude
+    @long = result.first.longitude
+    @radius = params[:radius]
+
+    @category_id = params[:category_id]
+    @category = Category.find(@category_id)
+    @company_list = Company.where(category: @category_id).order(rating: :desc)
   end
 end

@@ -19,3 +19,10 @@
   </div>
   <%= form.submit 'Show Climate Ratings', name: nil %>
 <% end %>
+
+<% if @category_id %>
+  <script>
+    document.getElementById("category_id_<%= @category_id %>").checked = true;
+    document.getElementById("radius").value = <%= @radius %>;
+  </script>
+<% end %>

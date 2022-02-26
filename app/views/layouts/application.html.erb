@@ -14,13 +14,78 @@
     <%= yield %>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script>
-      function initMap() {
+      let map;
 
+      function initMap() {
+        <% if @lat %>
+        // TODO move location request into client side
+        const location = new google.maps.LatLng(<%= @lat %>, <%= @long %>)
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: location,
+          zoom: 14,
+          // TODO adjust zoom level based on radius
+          mapTypeControl: false,
+        });
+        <% end %>
       }
 
+      function getCompanies() {
+        // TODO find better way of selecting the data, preferbly receive via
+        // ajax
+        return Array.from(document.querySelectorAll(".company-name"))
+          .map(element => [
+              element.textContent,
+              element.parentNode.querySelector(".company-rating").textContent
+          ]);
+      }
+
+      function callback(results, status, comapnyName, rating) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (let i = 0; i < results.length; i++) {
+            createMarker(results[i], comapnyName, rating);
+          }
+        }
+      }
+
+      function createMarker(place, comapnyName, rating) {
+        if (!place.geometry || !place.geometry.location) return;
+
+        const marker = new google.maps.Marker({
+          map,
+          position: place.geometry.location,
+          title: comapnyName,
+          label: rating,
+        });
+
+
+
+        google.maps.event.addListener(marker, "click", () => {
+          // FIXME
+          // infowindow.setContent(place.name || "");
+          // infowindow.open(map);
+        });
+      }
+
+
       window.addEventListener('load', () => {
+        const location = new google.maps.LatLng(<%= @lat %>, <%= @long %>)
         const locationInput = document.querySelector("#location");
         const autocomplete = new google.maps.places.Autocomplete(locationInput, {});
+
+        const companies = getCompanies();
+        const service = new google.maps.places.PlacesService(map);
+
+        companies.forEach(([company, rating]) => {
+          const request = {
+            location: location,
+            radius: <%= @radius.to_i * 1000 %>,
+            name: company
+          };
+          service.nearbySearch(request, (result, status) => {
+            callback(result, status, company, rating)
+          });
+        });
       });
 
     </script>
