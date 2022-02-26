@@ -12,6 +12,23 @@
 
   <body>
     <%= yield %>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script>
+      function initMap() {
+
+      }
+
+      window.addEventListener('load', () => {
+        const locationInput = document.querySelector("#location");
+        const autocomplete = new google.maps.places.Autocomplete(locationInput, {});
+      });
+
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key%>&callback=initMap&libraries=places&v=weekly"
+      async
+    ></script>
+
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

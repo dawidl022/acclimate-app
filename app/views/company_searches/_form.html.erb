@@ -15,7 +15,7 @@
   </div>
   <div class="field">
     <%= form.label :radius, "Radius (km)" %>
-    <%= form.number_field :radius, min: 0.1, step: 0.1 %>
+    <%= form.number_field :radius, min: 0.1, step: 0.1, value: 1 %>
   </div>
   <%= form.submit 'Show Climate Ratings', name: nil %>
 <% end %>
