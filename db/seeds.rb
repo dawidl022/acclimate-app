@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+by_category = {}
+data = CSV.parse(
+  File.read("#{Rails.root}/db/data/climate_ratings.csv"), headers: true)
+
+data.each do |company|
+  if by_category[company["Sector"]]
+    by_category[company["Sector"]] << company
+  else
+    by_category[company["Sector"]] = [company]
+  end
+end
+
+categories = Category.create(by_category.map { |category, _| {name: category} })
+
+by_category.each_with_index do |(category, companies), index|
+  companies.each do |company|
+    Company.create({
+      name: company["Company"],
+      category: Category.find_by_name(category),
+      rating: company["Rating"]
+    })
+  end
+end
