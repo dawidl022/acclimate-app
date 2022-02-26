@@ -1,6 +1,8 @@
 <%= render 'search_page' %>
 
-<div id="map" style="height:400px"></div>
+<% unless @errors["location"] %>
+  <div id="map" style="height:400px"></div>
+<% end %>
 
 <h2>Climate ratings for sector: <%= @category.name %></h2>
 <table>

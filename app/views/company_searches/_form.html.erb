@@ -7,12 +7,13 @@
         <%= button.label %>
       </div>
     <% end %>
-
+    <%= error_element("category") %>
   </fieldset>
   <div class="field">
     <%= form.label :location %>
     <%= form.text_field :location %>
     <button type="button" id="current-location-btn">Use current location</button>
+    <%= error_element("location") %>
   </div>
   <div class="field">
     <%= form.label :radius, "Radius (km)" %>
@@ -24,26 +25,31 @@
 <% if @category_id %>
   <script>
     document.getElementById("category_id_<%= @category_id %>").checked = true;
-    document.getElementById("radius").value = <%= @radius %>;
-    document.getElementById("location").value = '<%= @location_name %>';
   </script>
 <% end %>
 
 <script>
-    document.getElementById("current-location-btn").addEventListener("click", () => {
-      navigator.geolocation.getCurrentPosition(pos => {
-        document.getElementById("location")
-          .value = `${pos.coords.latitude}, ${pos.coords.longitude}`
-      }, fail => {
-        if (document.querySelector("#device-location-error")) {
-          return;
-        }
-        const errorElement = document.createElement('div');
-        errorElement.classList.add("error");
-        errorElement.setAttribute("id", "device-location-error");
-        errorElement.textContent =
-          "Unable to obtain current location. Please enter it manually"
-        document.getElementById("location").parentNode.appendChild(errorElement);
-      })
+  document.getElementById("radius").value = '<%= @radius %>' || 1;
+  document.getElementById("location").value = '<%= @location_name %>';
+
+  const DEVICE_LOCATION_ERR_MSG =
+    "Unable to obtain current location. Please enter it manually"
+
+  document.getElementById("current-location-btn").addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition(pos => {
+      document.getElementById("location")
+        .value = `${pos.coords.latitude}, ${pos.coords.longitude}`
+    }, fail => {
+      let errorElement = document.querySelector("#location-error");
+      if (errorElement) {
+        errorElement.textContent = DEVICE_LOCATION_ERR_MSG;
+        return;
+      }
+      errorElement = document.createElement('div');
+      errorElement.classList.add("error");
+      errorElement.setAttribute("id", "location-error");
+      errorElement.textContent = DEVICE_LOCATION_ERR_MSG;
+      document.getElementById("location").parentNode.appendChild(errorElement);
     })
+  })
 </script>

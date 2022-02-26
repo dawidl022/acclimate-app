@@ -73,21 +73,21 @@
         const autocomplete = new google.maps.places.Autocomplete(locationInput, {});
 
         <% if @lat %>
-        const location = new google.maps.LatLng(<%= @lat %>, <%= @long %>)
+          const location = new google.maps.LatLng(<%= @lat %>, <%= @long %>)
 
-        const companies = getCompanies();
-        const service = new google.maps.places.PlacesService(map);
+          const companies = getCompanies();
+          const service = new google.maps.places.PlacesService(map);
 
-        companies.forEach(([company, rating]) => {
-          const request = {
-            location: location,
-            radius: <%= @radius.to_i * 1000 %>,
-            name: company
-          };
-          service.nearbySearch(request, (result, status) => {
-            callback(result, status, company, rating)
+          companies.forEach(([company, rating]) => {
+            const request = {
+              location: location,
+              radius: <%= @radius.to_i * 1000 %>,
+              name: company
+            };
+            service.nearbySearch(request, (result, status) => {
+              callback(result, status, company, rating)
+            });
           });
-        });
         <% end %>
       });
 
