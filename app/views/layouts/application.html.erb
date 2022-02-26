@@ -69,9 +69,11 @@
 
 
       window.addEventListener('load', () => {
-        const location = new google.maps.LatLng(<%= @lat %>, <%= @long %>)
         const locationInput = document.querySelector("#location");
         const autocomplete = new google.maps.places.Autocomplete(locationInput, {});
+
+        <% if @lat %>
+        const location = new google.maps.LatLng(<%= @lat %>, <%= @long %>)
 
         const companies = getCompanies();
         const service = new google.maps.places.PlacesService(map);
@@ -86,6 +88,7 @@
             callback(result, status, company, rating)
           });
         });
+        <% end %>
       });
 
     </script>
