@@ -58,12 +58,23 @@
           label: rating,
         });
 
+        google.maps.event.addListener(marker, "click", e => {
+          const mapOverlay = document.querySelector(".map-overlay");
+          // const rect = e.domEvent.target.getBoundingClientRect();
+          mapOverlay.classList.remove("hidden");
+          mapOverlay.style.left = `${e.domEvent.pageX + 20}px`
+          mapOverlay.style.top = `${e.domEvent.pageY - 150}px`
+          const lat = e.latLng.lat();
+          const lng = e.latLng.lng();
+          mapOverlay.querySelector(".navigation-link")
+            .setAttribute("href", `https://www.google.com/maps/dir/?api=1&destination=${lat}%2C${lng}`)
+          mapOverlay.querySelector(".name").textContent = marker.title;
+          mapOverlay.querySelector(".rating").textContent = "Overall climate rating: " +  marker.label;
+        });
 
-
-        google.maps.event.addListener(marker, "click", () => {
-          // FIXME
-          // infowindow.setContent(place.name || "");
-          // infowindow.open(map);
+        google.maps.event.addListener(map, "click", e => {
+          const mapOverlay = document.querySelector(".map-overlay");
+          mapOverlay.classList.add("hidden")
         });
       }
 

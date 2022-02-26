@@ -1,8 +1,22 @@
 <%= render 'search_page' %>
 
 <% unless @errors["location"] %>
-  <div id="map" style="height:400px"></div>
+  <div class="map-container">
+    <div class="map-overlay hidden">
+      <h3 class="name"></h3>
+      <div class="rating"></div>
+      <ul class="facts"></ul>
+      <div class="stats">
+      </div>
+      <a href="" class="navigation-link" target="_blank">View route on Google Maps</a>
+    </div>
+
+    <div id="map" style="height:400px"></div>
+  </div>
 <% end %>
+
+
+
 
 <h2>Climate ratings for sector: <%= @category.name %></h2>
 <table>

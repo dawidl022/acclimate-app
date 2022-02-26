@@ -26,3 +26,22 @@ th, td {
 .error {
   color: red;
 }
+
+.map-overlay {
+  position: absolute;
+  width: calc(min(96vw, 400px));
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 1;
+  border: 1px solid gray;
+  padding: 1rem 2rem;
+  min-height: 200px;
+
+  .rating {
+    color: #333;
+  }
+}
+
+.hidden {
+  display: none;
+}
