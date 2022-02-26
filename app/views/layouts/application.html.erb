@@ -24,8 +24,8 @@
 
         map = new google.maps.Map(document.getElementById("map"), {
           center: location,
-          zoom: 14,
-          // TODO adjust zoom level based on radius
+          // TODO make sure radius is not negative on server!
+          zoom: Math.ceil(14 - Math.log2(<%= @radius.to_f %>)),
           mapTypeControl: false,
         });
         <% end %>
@@ -103,7 +103,7 @@
             companyDescriptions[company] = description;
             const request = {
               location: location,
-              radius: <%= @radius.to_i * 1000 %>,
+              radius: <%= @radius.to_f * 1000 %>,
               name: company
             };
             service.nearbySearch(request, (result, status) => {
