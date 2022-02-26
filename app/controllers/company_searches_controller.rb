@@ -13,6 +13,7 @@ class CompanySearchesController < ApplicationController
     @lat = result.first.latitude
     @long = result.first.longitude
     @radius = params[:radius]
+    @location_name = params[:location]
 
     @category_id = params[:category_id]
     @category = Category.find(@category_id)

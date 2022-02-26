@@ -12,6 +12,7 @@
   <div class="field">
     <%= form.label :location %>
     <%= form.text_field :location %>
+    <button type="button" id="current-location-btn">Use current location</button>
   </div>
   <div class="field">
     <%= form.label :radius, "Radius (km)" %>
@@ -24,5 +25,25 @@
   <script>
     document.getElementById("category_id_<%= @category_id %>").checked = true;
     document.getElementById("radius").value = <%= @radius %>;
+    document.getElementById("location").value = '<%= @location_name %>';
   </script>
 <% end %>
+
+<script>
+    document.getElementById("current-location-btn").addEventListener("click", () => {
+      navigator.geolocation.getCurrentPosition(pos => {
+        document.getElementById("location")
+          .value = `${pos.coords.latitude}, ${pos.coords.longitude}`
+      }, fail => {
+        if (document.querySelector("#device-location-error")) {
+          return;
+        }
+        const errorElement = document.createElement('div');
+        errorElement.classList.add("error");
+        errorElement.setAttribute("id", "device-location-error");
+        errorElement.textContent =
+          "Unable to obtain current location. Please enter it manually"
+        document.getElementById("location").parentNode.appendChild(errorElement);
+      })
+    })
+</script>

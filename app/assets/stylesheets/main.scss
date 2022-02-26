@@ -1,7 +1,28 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+input, button {
+  font-size: inherit;
+}
+
+table, td, th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.4rem;
+}
+
 .debug_dump {
   margin-top: 3rem;
   padding: 1rem;
   border: 1px solid gray;
   border-radius: 5px;
   font-size: 1rem;
+}
+
+.error {
+  color: red;
 }
