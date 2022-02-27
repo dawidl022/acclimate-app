@@ -19,6 +19,8 @@
     <script>
       let map;
       let companyDescriptions = {};
+      const categoryName = document.querySelector("#category_id_<%= @category_id %> + label")
+        .textContent;
 
       function initMap() {
         <% if @lat %>
@@ -53,21 +55,40 @@
         }
       }
 
+      function UrlExists(url) {
+        // https://stackoverflow.com/a/3646923
+        const http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        return http.status != 404;
+      }
+
       function createMarker(place, comapnyName, rating) {
         if (!place.geometry || !place.geometry.location) return;
+
+        let iconUrl = `/assets/map-icon/${categoryName}/${rating}.png`;
+        if (!UrlExists(iconUrl)) {
+          iconUrl = null;
+        } else {
+          rating = null;
+        }
 
         const marker = new google.maps.Marker({
           map,
           position: place.geometry.location,
           title: comapnyName,
           label: rating,
+          icon: {
+            url: iconUrl,
+            scale: 0.1
+          }
         });
 
         google.maps.event.addListener(marker, "click", e => {
           const mapOverlay = document.querySelector(".map-overlay");
           // const rect = e.domEvent.target.getBoundingClientRect();
           mapOverlay.classList.remove("hidden");
-          mapOverlay.style.left = `${e.domEvent.pageX + 20}px`
+          mapOverlay.style.left = `${e.domEvent.pageX + 80}px`
           mapOverlay.style.top = `${e.domEvent.pageY - 150}px`
           const lat = e.latLng.lat();
           const lng = e.latLng.lng();

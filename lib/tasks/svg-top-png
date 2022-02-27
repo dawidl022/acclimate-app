@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+for dir in *; do
+    cd "$dir"
+    for filename in *.svg; do
+        fname="${filename%.*}";
+        rsvg-convert -w 80 -h 47 $filename > "$fname.png"
+    done
+    cd ..
+done
+
