@@ -16,6 +16,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
   background-color: var(--secondary-color);
+  margin: 0;
 }
 
 input, button {
@@ -38,10 +39,15 @@ ul, ol {
   border-radius: 5px;
   font-size: 1rem;
   overflow: scroll;
+  display: none;
 }
 
 .error {
   color: red;
+}
+
+.map-container {
+  margin: 0 0.4rem;
 }
 
 .map-overlay {
@@ -245,6 +251,39 @@ ul, ol {
   .search-form {
     .sector-select {
       grid-template-columns: repeat(auto-fit, 13.5rem);
+    }
+  }
+}
+
+.footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background-color: #0156ac;
+  color: #fff;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about {
+    display: flex;
+    justify-content: space-between;
+
+    .copyright {
+      font-style: italic;
+    }
+
+    .website-author a {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 0.4rem;
+      color: inherit;
+
+      .footer-icon {
+        filter: invert(99%);
+      }
     }
   }
 }

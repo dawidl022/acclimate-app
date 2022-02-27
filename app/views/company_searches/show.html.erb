@@ -8,7 +8,8 @@
       <ul class="facts"></ul>
       <div class="stats">
       </div>
-      <a href="" class="navigation-link btn main-btn" target="_blank">View route on Google Maps</a>
+      <a href="" class="navigation-link btn main-btn" target="_blank"
+        rel="noopener">View route on Google Maps</a>
     </div>
 
     <div id="map" style="height:400px"></div>
@@ -22,9 +23,11 @@
   <h2>Environmental ratings for sector: <%= @category.name %></h2>
   <table>
     <thead>
-      <th scope="col">Ranking</th>
-      <th scope="col">Company Name</th>
-      <th scope="col">Rating</th>
+      <tr>
+        <th scope="col">Ranking</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Rating</th>
+      </tr>
     </thead>
     <tbody>
       <% @company_list.each_with_index do |company, index| %>
@@ -36,5 +39,5 @@
       </tr>
       <% end %>
     </tbody>
-  <table>
+  </table>
 </section>
