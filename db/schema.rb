@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2022_02_26_165040) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
-    t.index "\"category\"", name: "index_companies_on_category"
     t.index ["category_id"], name: "index_companies_on_category_id"
   end
 
