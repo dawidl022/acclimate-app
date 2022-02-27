@@ -64,10 +64,20 @@ ul, ol {
   display: none;
 }
 
-.logo img {
-  max-width: 100%;
-  margin: 0 auto;
-  display: block;
+/* HEADER / LOGO */
+
+.logo {
+  display: flex;
+  justify-content: center;
+
+  a {
+    padding: 0 5rem;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
 }
 
 /* FORM */
