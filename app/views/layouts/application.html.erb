@@ -67,19 +67,20 @@
 
       function createMarker(place, comapnyName, rating) {
         if (!place.geometry || !place.geometry.location) return;
+        let labelRating = rating;
 
         let iconUrl = `/map-icon/${categoryName}/${rating}.png`;
         if (!UrlExists(iconUrl)) {
           iconUrl = null;
         } else {
-          rating = null;
+          labelRating = null;
         }
 
         const marker = new google.maps.Marker({
           map,
           position: place.geometry.location,
           title: comapnyName,
-          label: rating,
+          label: labelRating,
           icon: {
             url: iconUrl,
             scale: 0.1
@@ -97,7 +98,7 @@
           mapOverlay.querySelector(".navigation-link")
             .setAttribute("href", `https://www.google.com/maps/dir/?api=1&destination=${lat}%2C${lng}`)
           mapOverlay.querySelector(".name").textContent = marker.title;
-          mapOverlay.querySelector(".rating").textContent = "Overall environmental rating: " +  marker.label;
+          mapOverlay.querySelector(".rating").textContent = "Overall environmental rating: " +  rating;
 
           if (companyDescriptions[marker.title]) {
             mapOverlay.querySelector(".facts").innerHTML =
