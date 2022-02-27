@@ -70,10 +70,6 @@ ul, ol {
   display: flex;
   justify-content: center;
 
-  a {
-    padding: 0 5rem;
-  }
-
   img {
     max-width: 100%;
     display: block;
@@ -238,5 +234,9 @@ ul, ol {
   .main-fields {
     grid-template-columns: 15rem auto auto;
     gap: 2rem 1rem;
+  }
+
+  .logo a {
+    padding: 0 5rem;
   }
 }
