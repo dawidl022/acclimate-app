@@ -88,8 +88,9 @@ ul, ol {
     border: 3px solid var(--main-color);
     border-radius: 5px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 13.125rem);
+    grid-template-columns: repeat(auto-fit, 16rem);
     justify-content: center;
+    justify-items: stretch;
     padding: 1rem 0;
     gap: 1rem;
     color: #444;
@@ -115,7 +116,7 @@ ul, ol {
       padding: 0.5rem 1rem;
       border: 2px solid #777;
       border-radius: 5px;
-      display: block;
+      display: flex;
       cursor: pointer;
     }
 
@@ -238,5 +239,11 @@ ul, ol {
 
   .logo a {
     padding: 0 5rem;
+  }
+
+  .search-form {
+    .sector-select {
+      grid-template-columns: repeat(auto-fit, 13.5rem);
+    }
   }
 }
