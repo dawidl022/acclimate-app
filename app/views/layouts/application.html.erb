@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>AcclimateApp</title>
+    <title>Acclimate App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%# TODO fill in description %>
-    <%# <meta name="description" content=""> %>
+    <meta name="description"
+      content="Demo web application for viewing environmental scores of retail companies.
+      Note: The app is populated with dummy data for demonstrative purposes.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon-logo.png') %>
   </head>
 
   <body>
