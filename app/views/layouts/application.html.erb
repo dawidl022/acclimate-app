@@ -19,8 +19,10 @@
     <script>
       let map;
       let companyDescriptions = {};
+      <% if @category_id %>
       const categoryName = document.querySelector("#category_id_<%= @category_id %> + label")
         .textContent;
+      <% end %>
 
       function initMap() {
         <% if @lat %>
