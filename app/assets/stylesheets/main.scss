@@ -97,7 +97,11 @@ ul, ol {
     }
 
     input[type="radio"] {
-      display: none;
+      width: 0;
+      height: 0;
+      position: absolute;
+      opacity: 0;
+      left: -1000px;
     }
 
     .sector-label {
@@ -118,7 +122,7 @@ ul, ol {
     }
 
 
-    input:checked ~ .sector-label, .sector-label:hover {
+    input:checked ~ .sector-label, .sector-label:hover, .sector-label:focus {
       color: var(--alt-colour);
       border-color: var(--alt-colour);
 
