@@ -8,7 +8,7 @@
       <ul class="facts"></ul>
       <div class="stats">
       </div>
-      <a href="" class="navigation-link" target="_blank">View route on Google Maps</a>
+      <a href="" class="navigation-link btn main-btn" target="_blank">View route on Google Maps</a>
     </div>
 
     <div id="map" style="height:400px"></div>
@@ -18,21 +18,23 @@
 
 
 
-<h2>Environmental ratings for sector: <%= @category.name %></h2>
-<table>
-  <thead>
-    <th scope="col">Ranking</th>
-    <th scope="col">Company Name</th>
-    <th scope="col">Rating</th>
-  </thead>
-  <tbody>
-    <% @company_list.each_with_index do |company, index| %>
-    <tr>
-      <td><%= index + 1 %></td>
-      <td class="company-name"><%= company.name %></td>
-      <td class="company-rating"><%= company.rating %></td>
-      <td class="company-description hidden"><%= company.description %></td>
-    </tr>
-    <% end %>
-  </tbody>
-<table>
+<section class="container results">
+  <h2>Environmental ratings for sector: <%= @category.name %></h2>
+  <table>
+    <thead>
+      <th scope="col">Ranking</th>
+      <th scope="col">Company Name</th>
+      <th scope="col">Rating</th>
+    </thead>
+    <tbody>
+      <% @company_list.each_with_index do |company, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td class="company-name"><%= company.name %></td>
+        <td class="company-rating"><%= company.rating %></td>
+        <td class="company-description hidden"><%= company.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  <table>
+</section>

@@ -1,26 +1,34 @@
-<%= form_with(url: '/climate_ratings', method: :get) do |form| %>
-  <fieldset class="sector-select">
-    <legend>Sector</legend>
-    <%= form.collection_radio_buttons(:category_id, Category.all, :id, :name) do |button| %>
-      <div class="button">
-        <%= button.radio_button %>
-        <%= button.label %>
+<section class="container search-form">
+  <%= form_with(url: '/climate_ratings', method: :get) do |form| %>
+    <fieldset class="sector-select">
+      <legend>Sector</legend>
+      <%= form.collection_radio_buttons(:category_id, Category.all, :id, :name) do |button| %>
+        <div class="button">
+          <%= button.radio_button %>
+          <%= button.label %>
+        </div>
+      <% end %>
+      <%= error_element("category") %>
+    </fieldset>
+    <div class="main-fields">
+      <div class="field">
+        <%= form.label :location %>
+        <div class="location-input">
+          <%= form.text_field :location %>
+          <%= error_element("location") %>
+        </div>
+        <button type="button" id="current-location-btn"
+          class="btn secondary-btn">Use current location</button>
       </div>
-    <% end %>
-    <%= error_element("category") %>
-  </fieldset>
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-    <button type="button" id="current-location-btn">Use current location</button>
-    <%= error_element("location") %>
-  </div>
-  <div class="field">
-    <%= form.label :radius, "Radius (km)" %>
-    <%= form.number_field :radius, min: 0.1, step: 0.1, value: 1 %>
-  </div>
-  <%= form.submit 'Show Environmental Ratings', name: nil %>
-<% end %>
+      <div class="field">
+        <%= form.label :radius, "Radius (km)" %>
+        <%= form.number_field :radius, min: 0.1, step: 0.1, value: 1 %>
+      </div>
+      <%= form.submit 'Show Environmental Ratings', name: nil,
+        class: "btn main-btn submit-btn" %>
+    </div>
+  <% end %>
+</section>
 
 <% if @category_id %>
   <script>
@@ -49,7 +57,7 @@
       errorElement.classList.add("error");
       errorElement.setAttribute("id", "location-error");
       errorElement.textContent = DEVICE_LOCATION_ERR_MSG;
-      document.getElementById("location").parentNode.appendChild(errorElement);
+      document.querySelector(".location-input").appendChild(errorElement);
     })
   })
 </script>

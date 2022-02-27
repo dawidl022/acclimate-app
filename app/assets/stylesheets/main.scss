@@ -1,31 +1,34 @@
 :root {
   --main-color: #027af4;
-  --secondary-color: #7caff1;
+  --secondary-color: #e8f2ff;
   --alt-colour: #4c58c6;
+}
+
+@mixin thick-border($width: 3px) {
+  border: $width solid var(--main-color);
+  border-radius: 5px;
+}
+
+@mixin transition() {
+  transition: all 0.2s ease;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-  // margin: 0;
   background-color: var(--secondary-color);
-  // color: white;
 }
 
 input, button {
-  font-size: inherit;
-}
-
-table, td, th {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 0.4rem;
+  font: inherit;
 }
 
 ul, ol {
   padding-left: 1rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto
 }
 
 .debug_dump {
@@ -65,4 +68,118 @@ ul, ol {
   max-width: 100%;
   margin: 0 auto;
   display: block;
+}
+
+/* FORM */
+
+.search-form {
+  input {
+    padding: 0.5rem 1rem;
+    @include transition();
+  }
+
+  .sector-select {
+    border: 3px solid var(--main-color);
+    border-radius: 5px;
+
+    legend {
+      font-style: italic;
+      font-weight: bold;
+      padding: 0 1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .main-fields {
+    display: grid;
+    gap: 1rem;
+    align-items: baseline;
+    margin: 1rem;
+
+    label {
+      font-weight: bold;
+    }
+  }
+
+  .location-input {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .field {
+    display: contents;
+  }
+
+  input[type="text"], input[type="number"] {
+    @include thick-border(2px);
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 1px 1px var(--alt-colour);
+    }
+  }
+}
+
+// BUTTON STYLES
+
+.btn {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  @include thick-border(2px);
+  @include transition();
+
+  &:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.main-btn {
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+}
+
+.secondary-btn {
+  background-color: #fff;
+  color: var(--main-color);
+}
+
+.submit-btn {
+  font-size: 1.1rem;
+}
+
+/* RESULTS LIST SECTION */
+
+.results {
+  h2 {
+    text-align: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    @include thick-border();
+  }
+
+
+  td, th {
+    border: 1px solid var(--alt-colour);
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 0.4rem;
+  }
+}
+
+/* DESKTOP STYLES */
+
+@media (min-width: 960px) {
+  .main-fields {
+    grid-template-columns: 15rem auto auto;
+    gap: 2rem 1rem;
+  }
 }
