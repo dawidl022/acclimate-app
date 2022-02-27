@@ -13,6 +13,6 @@ The app prototype helps users make informed decisions about their buying habits,
 ## Sample Screenshots
 
 ![Screenshot 1](/docs/screenshots/screenshot1.png)
-![Screenshot 2](/docs/screenshots/screenshot2.png)
-![Screenshot 4](/docs/screenshots/screenshot4.png)
+<img alt="Screenshot 2" src="/docs/screenshots/screenshot2.png" width="40%">
+<img alt="Screenshot 4" src="/docs/screenshots/screenshot4.png" width="40%">
 ![Screenshot 5](/docs/screenshots/screenshot5.png)
