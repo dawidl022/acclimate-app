@@ -20,7 +20,7 @@
       let map;
       let companyDescriptions = {};
       <% if @category_id %>
-      const categoryName = document.querySelector("#category_id_<%= @category_id %> + label")
+      const categoryName = document.querySelector("#category_id_<%= @category_id %> + label span")
         .textContent;
       <% end %>
 
@@ -89,7 +89,6 @@
 
         google.maps.event.addListener(marker, "click", e => {
           const mapOverlay = document.querySelector(".map-overlay");
-          // const rect = e.domEvent.target.getBoundingClientRect();
           mapOverlay.classList.remove("hidden");
           mapOverlay.style.left = `${e.domEvent.pageX + 80}px`
           mapOverlay.style.top = `${e.domEvent.pageY - 150}px`

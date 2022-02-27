@@ -1,15 +1,20 @@
 <section class="container search-form">
   <%= form_with(url: '/climate_ratings', method: :get) do |form| %>
+
     <fieldset class="sector-select">
       <legend>Sector</legend>
       <%= form.collection_radio_buttons(:category_id, pluralized_categories, :id, :name) do |button| %>
-        <div class="button">
+        <div class="sector-button">
           <%= button.radio_button %>
-          <%= button.label %>
+          <%= button.label class: "sector-label" do %>
+            <%= image_tag "icons/#{button.text}.svg", alt: "", class: "sector-icon" %>
+            <span><%= button.text %></span>
+          <% end %>
         </div>
       <% end %>
       <%= error_element("category") %>
     </fieldset>
+
     <div class="main-fields">
       <div class="field">
         <%= form.label :location %>

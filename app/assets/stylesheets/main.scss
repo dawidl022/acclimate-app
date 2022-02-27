@@ -81,12 +81,54 @@ ul, ol {
   .sector-select {
     border: 3px solid var(--main-color);
     border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 13.125rem);
+    justify-content: center;
+    padding: 1rem 0;
+    gap: 1rem;
+    color: #444;
 
     legend {
       font-style: italic;
       font-weight: bold;
       padding: 0 1rem;
       font-size: 1.2rem;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .sector-label {
+      @include transition();
+      padding: 0.5rem 1rem;
+      border: 2px solid #777;
+      border-radius: 5px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .sector-icon {
+      max-height: 1rem;
+      padding-right: 0.6rem;
+      // generated at: https://codepen.io/sosuke/pen/Pjoqqp
+      @include transition();
+      filter: brightness(0) saturate(0%) invert(26%) sepia(0%) hue-rotate(295deg) brightness(101%) contrast(97%);
+    }
+
+
+    input:checked ~ .sector-label, .sector-label:hover {
+      color: var(--alt-colour);
+      border-color: var(--alt-colour);
+
+      .sector-icon {
+        filter: brightness(0) saturate(0%) invert(35%) sepia(46%) saturate(1278%) hue-rotate(204deg) brightness(91%) contrast(96%);
+      }
+    }
+
+    input:checked ~ .sector-label {
+      font-weight: bolder;
+      background-color: #fff;
     }
   }
 
