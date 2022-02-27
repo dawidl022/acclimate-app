@@ -280,6 +280,12 @@ ul, ol {
 
 /* DESKTOP STYLES */
 
+@media(max-width: 650px) {
+  .map-overlay {
+    left: 2vw !important;
+  }
+}
+
 @media (min-width: 960px) {
   .main-fields {
     grid-template-columns: 15rem auto auto;
