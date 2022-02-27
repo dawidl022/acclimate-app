@@ -68,7 +68,7 @@
       function createMarker(place, comapnyName, rating) {
         if (!place.geometry || !place.geometry.location) return;
 
-        let iconUrl = `/assets/map-icon/${categoryName}/${rating}.png`;
+        let iconUrl = `/map-icon/${categoryName}/${rating}.png`;
         if (!UrlExists(iconUrl)) {
           iconUrl = null;
         } else {
